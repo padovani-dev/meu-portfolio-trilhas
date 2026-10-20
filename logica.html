@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de programação</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #100c18;
+            color: #f5efff;
+        }
+
+        .quiz {
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            border: 1px solid #75518d;
+            border-radius: 16px;
+            background: #21172b;
+        }
+
+        h1, h2 { color: #d8b5ff; }
+
+        .alternativas {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 13px;
+            border: 1px solid #9169aa;
+            border-radius: 8px;
+            background: #382044;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover:not(:disabled) { background: #65427c; }
+        button:disabled { cursor: default; opacity: .8; }
+
+        #feedback {
+            min-height: 24px;
+            line-height: 1.5;
+        }
+
+        .correta { border-color: #62d99b; }
+        .errada { border-color: #ff8585; }
+
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            color: #d8b5ff;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="quiz">
+        <h1>Quiz de programação</h1>
+        <p>Teste seus conhecimentos básicos de lógica e desenvolvimento web.</p>
+
+        <p id="progresso"></p>
+        <h2 id="pergunta"></h2>
+
+        <div id="alternativas" class="alternativas"></div>
+
+        <p id="feedback" aria-live="polite"></p>
+        <p id="pontuacao"></p>
+
+        <button id="proximo" hidden>Próxima pergunta</button>
+        <button id="reiniciar" hidden>Jogar novamente</button>
+
+        <br>
+        <a class="voltar" href="index.html">Voltar ao portfólio</a>
+    </main>
+
+    <script>
+        const perguntas = [
+            {
+                pergunta: "Para que serve o HTML?",
+                alternativas: [
+                    "Criar a estrutura de uma página",
+                    "Editar imagens",
+                    "Aumentar a velocidade da internet",
+                    "Criar um sistema operacional"
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "Qual tecnologia é usada para estilizar páginas?",
+                alternativas: ["Python", "CSS", "SQL", "HTML apenas"],
+                correta: 1
+            },
+            {
+                pergunta: "O que é uma variável?",
+                alternativas: [
+                    "Um tipo de computador",
+                    "Uma página da internet",
+                    "Um espaço para armazenar um valor",
+                    "Um erro de programação"
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Para que serve uma condição IF?",
+                alternativas: [
+                    "Para criar imagens",
+                    "Para testar uma condição",
+                    "Para desligar o computador",
+                    "Para apagar todos os dados"
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "O que é um algoritmo?",
+                alternativas: [
+                    "Uma sequência de passos para resolver um problema",
+                    "Uma linguagem de marcação",
+                    "Um componente físico",
+                    "Um tipo de monitor"
+                ],
+                correta: 0
+            }
+        ];
+
+        let indice = 0;
+        let pontos = 0;
+        let respondeu = false;
+
+        const perguntaEl = document.getElementById("pergunta");
+        const alternativasEl = document.getElementById("alternativas");
+        const feedbackEl = document.getElementById("feedback");
+        const progressoEl = document.getElementById("progresso");
+        const pontuacaoEl = document.getElementById("pontuacao");
+        const proximoBtn = document.getElementById("proximo");
+        const reiniciarBtn = document.getElementById("reiniciar");
+
+        function mostrarPergunta() {
+            respondeu = false;
+            const atual = perguntas[indice];
+
+            progressoEl.textContent =
+                `Pergunta ${indice + 1} de ${perguntas.length}`;
+
+            perguntaEl.textContent = atual.pergunta;
+            alternativasEl.replaceChildren();
+            feedbackEl.textContent = "";
+            pontuacaoEl.textContent = `Pontuação: ${pontos}`;
+            proximoBtn.hidden = true;
+            reiniciarBtn.hidden = true;
+
+            atual.alternativas.forEach((texto, i) => {
+                const botao = document.createElement("button");
+                botao.textContent = texto;
+                botao.addEventListener("click", () => verificarResposta(i));
+                alternativasEl.appendChild(botao);
+            });
+        }
+
+        function verificarResposta(escolha) {
+            if (respondeu) return;
+            respondeu = true;
+
+            const correta = perguntas[indice].correta;
+            const botoes = alternativasEl.querySelectorAll("button");
+
+            botoes.forEach((botao, i) => {
+                botao.disabled = true;
+                if (i === correta) botao.classList.add("correta");
+                if (i === escolha && i !== correta) {
+                    botao.classList.add("errada");
+                }
+            });
+
+            if (escolha === correta) {
+                pontos++;
+                feedbackEl.textContent = "Resposta correta! Muito bem!";
+            } else {
+                feedbackEl.textContent =
+                    "Não foi dessa vez. A resposta correta está destacada.";
+            }
+
+            pontuacaoEl.textContent = `Pontuação: ${pontos}`;
+            proximoBtn.hidden = false;
+
+            if (indice === perguntas.length - 1) {
+                proximoBtn.textContent = "Ver resultado";
+            } else {
+                proximoBtn.textContent = "Próxima pergunta";
+            }
+        }
+
+        proximoBtn.addEventListener("click", () => {
+            if (indice < perguntas.length - 1) {
+                indice++;
+                mostrarPergunta();
+            } else {
+                mostrarResultado();
+            }
+        });
+
+        function mostrarResultado() {
+            perguntaEl.textContent = "Quiz concluído!";
+            progressoEl.textContent = "Você terminou todas as perguntas.";
+            alternativasEl.replaceChildren();
+            feedbackEl.textContent =
+                pontos === perguntas.length
+                    ? "Excelente! Você acertou todas!"
+                    : "Continue praticando para melhorar seus conhecimentos!";
+            pontuacaoEl.textContent =
+                `Resultado final: ${pontos} de ${perguntas.length} pontos.`;
+
+            proximoBtn.hidden = true;
+            reiniciarBtn.hidden = false;
+        }
+
+        reiniciarBtn.addEventListener("click", () => {
+            indice = 0;
+            pontos = 0;
+            proximoBtn.textContent = "Próxima pergunta";
+            mostrarPergunta();
+        });
+
+        mostrarPergunta();
+    </script>
+</body>
+</html>

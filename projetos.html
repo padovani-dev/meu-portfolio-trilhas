@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Projetos | Eduardo Padovani</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0d15;
+            color: #f5f1ff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .perfil {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .foto-perfil {
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #b69aff;
+            margin-bottom: 18px;
+        }
+
+        .perfil h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .perfil p {
+            color: #c4b5fd;
+            line-height: 1.6;
+        }
+
+        .conteudo h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .introducao {
+            text-align: center;
+            color: #c4c0ce;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .projetos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card-projeto {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: #191622;
+            border: 1px solid #403452;
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.25s ease,
+                        border-color 0.25s ease;
+        }
+
+        .card-projeto:hover {
+            transform: translateY(-5px);
+            border-color: #b69aff;
+        }
+
+        .imagem-projeto {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: #2b223b;
+            border-radius: 13px;
+            color: #c4a7ff;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .texto-projeto {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+            width: 100%;
+        }
+
+        .texto-projeto h3 {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .texto-projeto p {
+            color: #c4c0ce;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .botao {
+            display: inline-block;
+            text-align: center;
+            background: #a78bfa;
+            color: #171121;
+            padding: 12px 18px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.25s ease,
+                        transform 0.25s ease;
+        }
+
+        .botao:hover {
+            background: #c4b5fd;
+            transform: translateY(-2px);
+        }
+
+        .botao-menor {
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        .voltar {
+            display: block;
+            width: fit-content;
+            margin: 35px auto 0;
+            background: transparent;
+            color: #c4a7ff;
+            border: 1px solid #8064b5;
+        }
+
+        .voltar:hover {
+            background: #29213a;
+            color: #ffffff;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 30px 16px;
+            }
+
+            .perfil h1 {
+                font-size: 1.65rem;
+            }
+
+            .conteudo h2 {
+                font-size: 1.7rem;
+            }
+
+            .projetos {
+                grid-template-columns: 1fr;
+            }
+
+            .card-projeto {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="perfil">
+            <img
+                src="img/perfil.jpg.jpeg"
+                alt="Foto de Eduardo Padovani Sousa"
+                class="foto-perfil"
+            >
+
+            <h1>Eduardo Padovani Sousa</h1>
+
+            <p>Desenvolvedor Front-end no Programa Trilhas</p>
+        </header>
+
+        <section class="conteudo">
+
+            <h2>Meus projetos</h2>
+
+            <p class="introducao">
+                Aqui apresento meus projetos e atividades de programação.
+                Esta página será atualizada conforme eu aprender coisas novas.
+            </p>
+
+            <div class="projetos">
+
+                <!-- Projeto 1 -->
+                <article class="card-projeto">
+
+                    <div class="imagem-projeto" aria-hidden="true">
+                        &lt;/&gt;
+                    </div>
+
+                    <div class="texto-projeto">
+                        <h3>Meu primeiro site</h3>
+
+                        <p>
+                            Página criada para praticar HTML, CSS e os
+                            fundamentos do desenvolvimento web.
+                        </p>
+
+                        <a
+                            href="meu-site.html"
+                            class="botao botao-menor"
+                        >
+                            Ver projeto
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="card-projeto">
+
+                    <div class="imagem-projeto" aria-hidden="true">
+                        { }
+                    </div>
+
+                    <div class="texto-projeto">
+                        <h3>Lógica de programação</h3>
+
+                        <p>
+                            Atividade prática para desenvolver o raciocínio
+                            lógico e aplicar JavaScript em um quiz interativo
+                            com perguntas e pontuação.
+                        </p>
+
+                        <a
+                            href="logica.html"
+                            class="botao botao-menor"
+                        >
+                            Ver projeto
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- Projeto 3 -->
+                <article class="card-projeto">
+
+                    <div class="imagem-projeto" aria-hidden="true">
+                        🎮
+                    </div>
+
+                    <div class="texto-projeto">
+                        <h3>Sistema Gerenciador de Gamers</h3>
+
+                        <p>
+                            Projeto em JavaScript e Node.js para cadastrar
+                            jogadores, registrar pontuações e verificar
+                            os requisitos para integrar a equipe principal.
+                        </p>
+
+                        <a
+                            href="https://github.com/padovanieduardo977-ui/sistema-gerenciador-de-gamers."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="botao botao-menor"
+                        >
+                            Ver código no GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- Projeto 4 -->
+                <article class="card-projeto">
+
+                    <div class="imagem-projeto" aria-hidden="true">
+                        👥
+                    </div>
+
+                    <div class="texto-projeto">
+                        <h3>Cadastro de Equipes</h3>
+
+                        <p>
+                            Programa em JavaScript e Node.js para cadastrar
+                            jogadores, organizar participantes e exibir
+                            a lista da equipe no terminal.
+                        </p>
+
+                        <a
+                            href="https://github.com/padovanieduardo977-ui/cadastro-de-equipes"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="botao botao-menor"
+                        >
+                            Ver código no GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <a href="index.html" class="botao voltar">
+            ← Voltar ao início
+        </a>
+
+    </main>
+
+</body>
+</html>

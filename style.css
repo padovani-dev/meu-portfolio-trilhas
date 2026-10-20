@@ -1,0 +1,440 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f7f2ff;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #492c65,
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #352044,
+            transparent 40%
+        ),
+        #100d18;
+}
+
+/* =================================
+   CONTEÚDO PRINCIPAL
+================================= */
+
+.container {
+    width: 100%;
+    max-width: 940px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 65px 20px 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =================================
+   FOTO E PERFIL
+================================= */
+
+.perfil {
+    width: 100%;
+    text-align: center;
+}
+
+.foto-perfil {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+    border: 2px solid #c9a0ff;
+
+    object-fit: cover;
+    background-color: #241831;
+
+    box-shadow: 0 0 22px rgba(201, 160, 255, 0.18);
+}
+
+.perfil h1 {
+    margin: 15px 0 8px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.perfil p {
+    margin: 0;
+    color: #d4c8e2;
+    line-height: 1.6;
+}
+
+/* =================================
+   BOTÕES DA PÁGINA INICIAL
+================================= */
+
+.botoes {
+    width: 100%;
+    max-width: 480px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.botao {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+
+    border: 1px solid #70558c;
+    border-radius: 8px;
+
+    color: #f7f2ff;
+    background-color: rgba(201, 160, 255, 0.08);
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+
+    transition: background-color 0.2s,
+                border-color 0.2s,
+                transform 0.2s;
+}
+
+.botao:hover {
+    background-color: #49315f;
+    border-color: #c9a0ff;
+    transform: translateY(-2px);
+}
+
+/* =================================
+   ÍCONES DO GITHUB E LINKEDIN
+================================= */
+
+.redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    margin-top: 34px;
+}
+
+.redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d9bcff;
+    text-decoration: none;
+}
+
+.icone-social {
+    display: block;
+    width: 23px;
+    height: 23px;
+
+    color: #d9bcff;
+
+    transition: transform 0.2s,
+                color 0.2s;
+}
+
+.redes a:hover .icone-social {
+    color: #ffffff;
+    transform: scale(1.15);
+}
+
+/* =================================
+   PÁGINAS INTERNAS
+================================= */
+
+.pagina-interna {
+    padding-top: 38px;
+}
+
+.conteudo {
+    width: 100%;
+    max-width: 720px;
+
+    margin-top: 32px;
+    padding: 26px;
+
+    border: 1px solid #70558c;
+    border-radius: 12px;
+
+    background-color: rgba(35, 25, 49, 0.9);
+}
+
+.conteudo h2 {
+    margin-top: 0;
+    color: #d9bcff;
+    text-align: center;
+}
+
+.conteudo p {
+    color: #d4c8e2;
+    line-height: 1.8;
+}
+
+.introducao {
+    text-align: center;
+}
+
+/* =================================
+   CARTÕES DOS PROJETOS
+================================= */
+
+.projetos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.card-projeto {
+    overflow: hidden;
+
+    border: 1px solid #70558c;
+    border-radius: 10px;
+
+    background-color: #191322;
+}
+
+.imagem-projeto {
+    min-height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #eadbff;
+    background: linear-gradient(135deg, #342047, #76519a);
+
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.texto-projeto {
+    padding: 16px;
+}
+
+.texto-projeto h3 {
+    margin-top: 0;
+    color: #f7f2ff;
+}
+
+.texto-projeto p {
+    font-size: 14px;
+}
+
+.botao-menor {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.voltar {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 22px;
+}
+
+/* =================================
+   ADAPTAÇÃO PARA CELULARES
+================================= */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 16px;
+    }
+
+    .perfil h1 {
+        font-size: 22px;
+    }
+
+    .projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .conteudo {
+        padding: 20px;
+    }
+
+    .perfil p {
+        font-size: 14px;
+    }
+}
+
+/* ===== NOVO VISUAL DA PÁGINA DE PROJETOS ===== */
+
+.pagina-interna {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 36px 0 50px;
+}
+
+.pagina-interna .perfil {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.pagina-interna .perfil h1 {
+    margin-bottom: 8px;
+    font-size: clamp(26px, 4vw, 36px);
+}
+
+.pagina-interna .perfil p {
+    margin-top: 0;
+    color: #d2c3e5;
+}
+
+.pagina-interna .conteudo {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 36px;
+    background: rgba(35, 25, 47, 0.78);
+    border: 1px solid rgba(190, 145, 230, 0.24);
+    border-radius: 20px;
+}
+
+.pagina-interna .conteudo > h2 {
+    margin: 0 0 12px;
+    text-align: left;
+    font-size: 30px;
+    color: #dfc2ff;
+}
+
+.pagina-interna .introducao {
+    max-width: 650px;
+    margin: 0 0 30px;
+    color: #cfc3dc;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.pagina-interna .projetos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.pagina-interna .card-projeto {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    background: #17111f;
+    border: 1px solid #493456;
+    border-radius: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.pagina-interna .card-projeto:hover {
+    transform: translateY(-5px);
+    border-color: #b78cda;
+}
+
+.pagina-interna .imagem-projeto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 165px;
+    background: linear-gradient(135deg, #392448, #674582);
+    color: #f0ddff;
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.pagina-interna .texto-projeto {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: stretch;
+    padding: 24px;
+}
+
+.pagina-interna .texto-projeto h3 {
+    margin: 0 0 14px;
+    color: #f6efff;
+    font-size: 21px;
+}
+
+.pagina-interna .texto-projeto p {
+    margin: 0 0 24px;
+    color: #cfc5d8;
+    line-height: 1.8;
+}
+
+.pagina-interna .botao-menor {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 13px 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #674582;
+    border: 1px solid #8662a3;
+    border-radius: 9px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pagina-interna .botao-menor:hover {
+    background: #8057a1;
+    transform: translateY(-2px);
+}
+
+.pagina-interna .voltar {
+    display: block;
+    width: fit-content;
+    min-width: 220px;
+    margin: 24px auto 0;
+    text-align: center;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 700px) {
+    .pagina-interna {
+        width: 94%;
+        padding-top: 24px;
+    }
+
+    .pagina-interna .conteudo {
+        padding: 22px 16px;
+    }
+
+    .pagina-interna .conteudo > h2 {
+        font-size: 26px;
+    }
+
+    .pagina-interna .projetos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .pagina-interna .imagem-projeto {
+        min-height: 130px;
+    }
+
+    .pagina-interna .texto-projeto {
+        padding: 20px;
+    }
+
+    .pagina-interna .voltar {
+        width: 100%;
+    }
+}

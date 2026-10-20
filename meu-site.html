@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro site</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #100c18;
+            color: #f5efff;
+            text-align: center;
+        }
+
+        header {
+            padding: 55px 20px;
+            background: linear-gradient(135deg, #382044, #754b91);
+        }
+
+        header h1 { font-size: 36px; }
+        header p { font-size: 18px; }
+
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        section {
+            background: #21172b;
+            border: 1px solid #75518d;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        h2 { color: #d8b5ff; }
+
+        .habilidades {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .habilidades span {
+            background: #503364;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: #754b91;
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover { background: #9367b0; }
+
+        footer {
+            padding: 20px;
+            color: #cbbbd8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Olá, eu sou Eduardo!</h1>
+        <p>Estudante de programação e desenvolvedor Front-end em formação.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre mim</h2>
+            <p>
+                Estou aprendendo desenvolvimento web por meio do Programa
+                Trilhas. Gosto de tecnologia e quero desenvolver projetos
+                que transformem ideias em soluções digitais.
+            </p>
+        </section>
+
+        <section>
+            <h2>Minhas habilidades</h2>
+            <div class="habilidades">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Lógica de programação</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Meu objetivo</h2>
+            <p>
+                Continuar aprendendo, criar projetos e evoluir como
+                desenvolvedor, construindo experiências úteis e acessíveis.
+            </p>
+        </section>
+
+        <a href="index.html">Voltar ao portfólio</a>
+    </main>
+
+    <footer>
+        Projeto desenvolvido para praticar HTML e CSS.
+    </footer>
+</body>
+</html>
